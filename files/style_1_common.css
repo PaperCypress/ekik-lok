@@ -2,7 +2,6 @@
     word-wrap:break-word;
 }
 body{
-    background:url("../../static/image/common/bg1.png") left top repeat-x;
     min-width:980px;
 }
 body,input,button,select,textarea{
@@ -329,7 +328,6 @@ hr.m0{
 .px,.pt,.ps,select{
     border:1px solid;
     border-color:#848484 #E0E0E0 #E0E0E0 #848484;
-    background:#FFF url(../../static/image/common/px.png) repeat-x 0 0;
     color:;
 }
 .px,.pt{
@@ -740,10 +738,10 @@ a.pn:hover{
 }
 .scbar_icon_td{
     width:21px;
-    background:url(../../static/image/common/search.png) no-repeat 0 -50px;
+    background:url(../images/search.png) no-repeat 0 -50px;
 }
 .scbar_txt_td,.scbar_type_td{
-    background:url(../../static/image/common/search.png) repeat-x 0 -93px;
+    background:url(../images/search.png) repeat-x 0 -93px;
 }
 #scbar_txt{
     width:400px;
@@ -755,7 +753,7 @@ a.pn:hover{
 }
 .scbar_btn_td{
     width:38px;
-    background:url(../../static/image/common/search.png) no-repeat 8px -142px;
+    background:url(../images/search.png) no-repeat 8px -142px;
 }
 #scbar_btn{
     margin:0;
@@ -769,7 +767,7 @@ a.pn:hover{
 }
 .scbar_type_td{
     width:61px;
-    background:url(../../static/image/common/search.png) no-repeat 0 -193px;
+    background:url(../images/search.png) no-repeat 0 -193px;
 }
 #scbar_type{
     display:block;
@@ -1427,13 +1425,13 @@ a.returnlist:hover,a.returnboard:hover{
 }
 #pt .z em{
     width:20px;
-    background:url(../../static/image/common/pt_item.png) no-repeat 3px 10px;
+    background:url( ../images/pt_item.png) no-repeat 3px 10px;
     line-height:200px;
     overflow:hidden;
 }
 .nvhm{
     width:16px;
-    background:url(../../static/image/common/search.png) no-repeat 0 0;
+    background:url(../images/search.png) no-repeat 0 0;
     line-height:200px;
     overflow:hidden;
 }
@@ -2126,7 +2124,6 @@ a.returnlist:hover,a.returnboard:hover{
     margin:2px 5px 0 0;
     width:20px;
     height:20px;
-    background:url(../../static/image/editor/editor.gif) no-repeat;
     text-indent:-9999px;
     line-height:20px;
     overflow:hidden;
@@ -2592,7 +2589,6 @@ a.returnlist:hover,a.returnboard:hover{
     border-width:1px 1px 1px 0;
     border-style:solid;
     border-color:#848484 #E0E0E0 #E0E0E0 #848484;
-    background:#FFF url(../../static/image/common/newarow.gif) no-repeat 100% 0;
 }
 .dpbtn:hover{
     background-position:100% -23px;
@@ -4803,7 +4799,6 @@ table .bgadl:hover td{
 }
 html{
     min-height:100%;
-    background:#E5E5E5 url(../../static/image/common/bg2.png) bottom left repeat-x;
 }
 .dwp{
     margin:0 auto;
