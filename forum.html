@@ -6,15 +6,15 @@
 <meta name="MSSmartTagsPreventParsing" content="True">
 <meta http-equiv="MSThemeCompatible" content="Yes">
 <base href="."><link rel="stylesheet" type="text/css" href="./files/style_1_common.css"><link rel="stylesheet" type="text/css" href="./files/style_1_forum_forumdisplay.css"><script src="./files/push.js.download"></script>
-<script src="./files/jquery.min.js.download" type="text/javascript"></script><script type="text/javascript">var jq = jQuery.noConflict();</script>
-<script src="./files/jcookie.js.download" type="text/javascript"></script>
+
+
 <meta name="application-name" content="e極樂 - 淨零塔位網路論壇">
 <meta name="msapplication-tooltip" content="e極樂 - 淨零塔位網路論壇">
 <meta name="msapplication-task" content="name=論壇;">
 
 </head>
 
-<body id="nv_forum" class="pg_forumdisplay" onkeydown="if(event.keyCode==27) return false;">
+<body id="nv_forum" class="pg_forumdisplay" >
 <div id="append_parent"><div id="ls_fastloginfield_ctrl_menu" class="sltm" style="display: none; width: 40px;"><ul><li class="current">用戶名</li><li>UID</li><li>Email</li></ul></div></div><div id="ajaxwaitid"></div>
 <div class="dwp">
 
@@ -34,9 +34,8 @@
 
 <form method="post" autocomplete="off" id="lsform" action="">
 <div class="fastlg cl">
-<span id="return_ls" style="display:none"></span>
 <!--loginform-->
-<div class="y pns" style="display: none;">
+<div class="y pns" id="loginform" style="display: none;">
 <table cellspacing="0" cellpadding="0">
 <tbody><tr>
 <td>
@@ -60,22 +59,21 @@
 </div>
 <!--endloginform-->
 <!--profile-->
-<div id="um">
-	<div class="avt y"><a href="http://www.168gamesf.com/space-uid-628705.html"><img src="./loggedin_files/noavatar_small.gif" onerror="this.onerror=null;this.src=&#39;http://www.168gamesf.com/uc_server/images/noavatar_small.gif&#39;"></a></div>
+<div id="um" style="display: none;" >
+	<div class="avt y"><a href=""><img src="./loggedin_files/noavatar_small.gif"></a></div>
 	<p>
-	<strong class="vwmy"><a href="http://www.168gamesf.com/space-uid-628705.html" target="_blank" title="訪問我的空間">laplusname</a></strong>
+	<strong class="vwmy"><a href="" target="_blank" id="username">laplusname</a></strong>
 	<span id="loginstatus">
-	<a id="loginstatusid" href="http://www.168gamesf.com/member.php?mod=switchstatus" title="切換在線狀態" onclick="ajaxget(this.href, &#39;loginstatus&#39;);return false;" class="xi2">在線</a>
+	<a id="loginstatusid" href="" title="切換在線狀態" class="xi2">在線</a>
 	</span>
-	<span class="pipe">|</span><a href="javascript:;" id="myitem" class="showmenu" onmouseover="showMenu({&#39;ctrlid&#39;:&#39;myitem&#39;});">我的</a>
+
 	<span class="pipe">|</span><a href="">設置</a>
-	<span class="pipe">|</span><a href="" id="pm_ntc">個人私信</a>
 	<span class="pipe">|</span><a href="" id="myprompt" class="a showmenu new">訊息(1)</a><span id="myprompt_check"></span>
-	<span class="pipe">|</span><a href="">退出</a>
+	<span class="pipe">|</span><a  onclick="logout()">登出</a>
 	</p>
 	<p>
-	<a href="http://www.168gamesf.com/home.php?mod=spacecp&amp;ac=credit&amp;showcredit=1" id="extcreditmenu" onmouseover="delayShow(this, showCreditmenu);" class="showmenu">積分: 0</a>
-	<span class="pipe">|</span><a href="http://www.168gamesf.com/home.php?mod=spacecp&amp;ac=usergroup" id="g_upmine" class="showmenu" onmouseover="delayShow(this, showUpgradeinfo)">用戶組: 168會員</a>
+	<a href="" id="extcreditmenu" class="showmenu">積分: 190</a>
+	<span class="pipe">|</span><a href="" id="g_upmine" class="showmenu" onmouseover="">群組: 會員</a>
 	</p>
 	</div>
 	<!--endprofile-->
@@ -119,20 +117,21 @@
 <!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
 
 <div class="wp b_tad"><ul class="piclist nibox">
-<li><a href="" rel="nofollow" target="_blank" onclick="return denyopener(this)"><img src="./files/7l7stq.gif" height="310" width="310" border="0"></a></li>
-<li><a href="" rel="nofollow" target="_blank" onclick="return denyopener(this)"><img src="./files/ge44w.gif" height="310" width="310" border="0"></a></li>
-<li><a href="" rel="nofollow" target="_blank" onclick="return denyopener(this)"><img src="./files/7l7stq.gif" height="310" width="310" border="0"></a></li>
-</ul></div><div class="wp b_fada"><script type="text/javascript">
-
-</script>
+<li><a href="index.html" rel="nofollow" target="_blank" onclick="return denyopener(this)"><img src="./files/7l7stq.gif" height="310" width="310" border="0"></a></li>
+<li><a href="index.html" rel="nofollow" target="_blank" onclick="return denyopener(this)"><img src="./files/ge44w.gif" height="310" width="310" border="0"></a></li>
+<li><a href="index.html" rel="nofollow" target="_blank" onclick="return denyopener(this)"><img src="./forums/觀音座墊.png" height="310" width="310" border="0"></a></li>
+</ul></div><div class="wp b_fada">
 <ul class="piclist baxe"><li>
-<a href="" onclick="return denyopener(this)" rel="nofollow" target="_blank"><img src="./files/1124464.gif" height="60" width="956" border="0"></a>
+<a href="index.html"  rel="nofollow" target="_blank"><img src="./forums/論壇廣告1.png" height="60" width="956" border="0"></a>
 	</li><li>
-<a href="" onclick="return denyopener(this)" rel="nofollow" target="_blank"><img src="./files/twms666.gif" height="60" width="956" border="0"></a>
+<a href="index.html"  rel="nofollow" target="_blank"><img src="./forums/論壇廣告2.png" height="60" width="956" border="0"></a>
 	</li>
 
 	
-</ul></div><div class="wp">
+</ul>
+</div>
+
+<div class="wp">
 <!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
 </div>
 
@@ -168,9 +167,9 @@
 
 
 <div id="pgt" class="bm bw0 pgs cl">
-<span id="fd_page_top"><div class="pg"><strong>1</strong><a href="http://www.168gamesf.com/forum-47-2.html">2</a><a href="http://www.168gamesf.com/forum-47-3.html">3</a><a href="http://www.168gamesf.com/forum-47-4.html">4</a><a href="http://www.168gamesf.com/forum-47-5.html">5</a><a href="http://www.168gamesf.com/forum-47-6.html">6</a><a href="http://www.168gamesf.com/forum-47-7.html">7</a><a href="http://www.168gamesf.com/forum-47-8.html">8</a><a href="http://www.168gamesf.com/forum-47-9.html">9</a><a href="http://www.168gamesf.com/forum-47-10.html">10</a><a href="http://www.168gamesf.com/forum-47-95.html" class="last">... 95</a><label><input type="text" name="custompage" class="px" size="2" title="輸入頁碼，按回車快速跳轉" value="1" onkeydown="if(event.keyCode==13) {window.location=&#39;forum.php?mod=forumdisplay&amp;fid=47&amp;page=&#39;+this.value;; doane(event);}"><span title="共 95 頁"> / 95 頁</span></label><a href="http://www.168gamesf.com/forum-47-2.html" class="nxt">下一頁</a></div></span>
-<span class="pgb y"><a href="">返&nbsp;回</a></span>
-<a href="javascript:;" id="newspecial" onmouseover="$(&#39;newspecial&#39;).id = &#39;newspecialtmp&#39;;this.id = &#39;newspecial&#39;;showMenu({&#39;ctrlid&#39;:this.id})" onclick="showWindow(&#39;newthread&#39;, &#39;forum.php?mod=post&amp;action=newthread&amp;fid=47&#39;)" title="發新帖"><img src="./files/pn_post.png" alt="發新帖"></a></div>
+
+
+<a href="javascript:;" id="newspecial" title="發佈文章"><img src="./files/pn_post.png" alt="發佈文章"></a></div>
 <div id="threadlist" class="tl bm bmw">
 <div class="th">
 <table cellspacing="0" cellpadding="0">
@@ -298,8 +297,10 @@ var fid = parseInt('47');
 <div id="ft" class="wp cl">
 <div id="flk" class="y">
 <p>
-<a href="" rel="nofollow">免責聲明</a><span class="pipe">|</span><a href="http://www.168gamesf.com/forum.php?mod=misc&amp;action=showdarkroom" rel="nofollow">小黑屋</a><span class="pipe">|</span><a href="http://www.168gamesf.com/forum.php?mobile=yes" rel="nofollow">手機版</a><span class="pipe">|</span><a href="http://www.168gamesf.com/archiver/" rel="nofollow">Archiver</a><span class="pipe">|</span><strong><a href="http://www.168gamesf.com/" target="_blank">168遊戲論壇</a></strong><span class="pipe">|</span>
-
+<a href="" rel="nofollow">免責聲明</a><span class="pipe">|</span><a href="" rel="nofollow">小黑屋</a><span class="pipe">|</span><a href="http://www.168gamesf.com/forum.php?mobile=yes" rel="nofollow">手機版</a><span class="pipe">|</span><a href="http://www.168gamesf.com/archiver/" rel="nofollow">Archiver</a><span class="pipe">|</span><strong><a href="http://www.168gamesf.com/" target="_blank">168遊戲論壇</a></strong><span class="pipe">|</span>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/forumlogin.js"></script>
 <script>
 
 	function getlist(sheet,loc){
@@ -350,7 +351,7 @@ var fid = parseInt('47');
 </div>
 <div id="frt">
 <p>Powered by <strong><a href="http://www.discuz.net/" target="_blank">Discuz!</a></strong> <em>X3.4</em></p>
-<p class="xs0">© 2013-2023 <a href="http://www.comsenz.com/" target="_blank">Yungsheng Lab Corp.</a></p>
+<p class="xs0">© 2013-2023 <a href="#" target="_blank">Yungsheng Lab Corp.</a></p>
 </div></div>
 
 
