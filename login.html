@@ -312,10 +312,11 @@ input {
         <h1>登入</h1>
       
 
-        <input type="email" placeholder="使用者帳號" />
-        <input type="password" placeholder="密碼" />
+        <input type="username" id="user" placeholder="使用者帳號" />
+        <input type="password" id="pass" placeholder="密碼" />
         <a href="#">忘記密碼?</a>
-        <button>登入</button>
+        <button onclick="login()">登入</button>
+		<p style="color: #FF416C;font-style: italic;" id="errormsg"></p>
       </form>
     </div>
     <div class="overlay-container">
@@ -324,6 +325,7 @@ input {
           <h1>Welcome Back!</h1>
           <p>To keep connected with us please login with your personal info</p>
           <button class="ghost" id="signIn">登入</button>
+		  
         </div>
         <div class="overlay-panel overlay-right">
           <h1>初次使用平台?</h1>
@@ -353,6 +355,49 @@ input {
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+  <script>
+	  var userlist=[];
+	  var passlist=[];
+	  var userform=document.getElementById("user");
+	var passform=document.getElementById("pass");
+	var error=document.getElementById("errormsg");
+	  $( document ).ready(function() {
+		getusers();
+		});
+		function getusers(){
+			jQuery.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1OBU38M_mZylTzT3GjWrJsnOSySeQEgMcZhE7ujj-Vic/values/accounts/?key=AIzaSyCSGFd1PdXyieRtd8FXsgFZVyMnI3Q8Xkk", function (data) {
+				var sheetData = data.values;
+				for (i = 1; i < sheetData.length; i++) {
+				userlist[i-1]=sheetData[i][0]; 		
+				passlist[i-1]=sheetData[i][1]; 
+				}
+				
+
+			});
+		}
+	  function login(){
+		if(userlist!=undefined){
+			
+			if(userlist.findIndex(checkName)!=-1){
+				var index=userlist.findIndex(checkName);
+				if(passform.value==passlist[index]){
+					error.innerHTML="成功";		
+				}
+				else{
+				error.innerHTML="帳號與密碼不符合";	
+				}
+				
+			}
+			else{
+				error.innerHTML="此帳號不存在";
+			}
+		}
+	  }
+	  function checkName(name) {
+  		return name==userform.value;
+		}
+
+  </script>
 
 </body>
 
