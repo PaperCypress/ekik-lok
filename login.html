@@ -275,11 +275,25 @@ input {
              </li>
               
            </ul>
-              <div class="login_bt">
+		   <!-- loginbanner-->
+              <div class="login_bt" id="signin_btn">
                  <ul>
                     <li><a href="login.html"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
                  </ul>
               </div>
+
+			  <div class="login_bt" id="userlink" style="display: none;">
+				<ul>
+				   <li><a href="#" ><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>fawfw</a></li>
+				</ul>
+			</div>
+
+			  <div class="login_bt" style="margin-left: 10px;" id="logout_btn" style="display: none;">
+				<ul>
+				   <li><a href="#" onclick="logout()">Logout</a></li>
+				</ul>
+			</div>
+			<!-- loginbannerend-->
         </div>
      </nav>
     </div>
@@ -315,7 +329,7 @@ input {
         <input type="username" id="user" placeholder="使用者帳號" />
         <input type="password" id="pass" placeholder="密碼" />
         <a href="#">忘記密碼?</a>
-        <button onclick="login()">登入</button>
+        <button type="button" onclick="login()">登入</button>
 		<p style="color: #FF416C;font-style: italic;" id="errormsg"></p>
       </form>
     </div>
@@ -355,26 +369,16 @@ input {
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/js.cookie.min.js"></script>
+  <script type="text/javascript" src="js/mainlogin.js"></script>
+
   <script>
-	  var userlist=[];
-	  var passlist=[];
+
 	  var userform=document.getElementById("user");
 	var passform=document.getElementById("pass");
 	var error=document.getElementById("errormsg");
-	  $( document ).ready(function() {
-		getusers();
-		});
-		function getusers(){
-			jQuery.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1OBU38M_mZylTzT3GjWrJsnOSySeQEgMcZhE7ujj-Vic/values/accounts/?key=AIzaSyCSGFd1PdXyieRtd8FXsgFZVyMnI3Q8Xkk", function (data) {
-				var sheetData = data.values;
-				for (i = 1; i < sheetData.length; i++) {
-				userlist[i-1]=sheetData[i][0]; 		
-				passlist[i-1]=sheetData[i][1]; 
-				}
-				
 
-			});
-		}
+		
 	  function login(){
 		if(userlist!=undefined){
 			
@@ -382,6 +386,8 @@ input {
 				var index=userlist.findIndex(checkName);
 				if(passform.value==passlist[index]){
 					error.innerHTML="成功";		
+					Cookies.set('signedin', userIDlist[index], { expires: 7 })
+					window.location.href="index.html";
 				}
 				else{
 				error.innerHTML="帳號與密碼不符合";	
@@ -393,6 +399,7 @@ input {
 			}
 		}
 	  }
+
 	  function checkName(name) {
   		return name==userform.value;
 		}
