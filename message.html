@@ -96,7 +96,7 @@
 
 <style id="diy_style" type="text/css"></style>
 <div class="wp">
-<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+<!--[diy=diy1]--><div id="diy1" class="area"></div>
 </div>
 
 <div id="ct" class="ct2_a wp cl">
@@ -121,8 +121,8 @@
 </div>
 </div>
 <div id="pm_ul" class="xld xlda mbm pml">
+<!--messageblock
 <dl id="pmlist_12755" class="bbda cl">
-
 <dd class="m avt" id="bottom">
 <a href="" target="_blank"><img src="./files/noavatar_small.jpg" ></a>
 </dd>
@@ -136,8 +136,9 @@ hrsbergse<br>
 <img src="./message2_files/noavatar_small.jpg" border="0" alt=""><br>
 <span class="xg1">2023-6-7 16:35</span>
 </dd>
-
 </dl>
+messageblockend-->
+
 
 </div>
 
@@ -219,8 +220,8 @@ hrsbergse<br>
 <script type="text/javascript" src="js/js.cookie.min.js"></script>
 <script type="text/javascript" src="js/forumlogin.js"></script>
 <script>
-var sender=document.getElementById("sender");
-sender.href=
+var senderelement=document.getElementById("sender");
+//senderelement.href=
 function getmessage(sheet,loc){
     
     var userid=Cookies.get("signedin");
@@ -228,37 +229,39 @@ function getmessage(sheet,loc){
 
         var sheetData = data.values;
             var message=document.getElementById("message");
+        var messageparent=document.getElementById("pm_ul");
+            
         var i;
-        var matchCount = 0;
-        console.log(sheetData[0][1]);
-        var sender=sheetData[0][1];
-        let content=sheetData[1][0];
-        content=content.slice(0, 40);
-        message.innerHTML=sender+":<br>";
-        message.insertAdjacentHTML('afterend', "<span>"+content+"...</span><br>");
-        //clip msg
-          /*for (i = 1; i < 99; i++) {
-            var date=document.getElementById(messagetime); 
-        var sender=sheetData[0][1];
+        
+          for (i = 2; i < sheetData.length; i++) {
+            var date=sheetData[i][3]; 
+        var sender=sheetData[i][1];
+        var content=sheetData[i][0];
           console.log(sheetData[0][1]);
-          var post = document.createElement('tbody');
-		  post.id="stickthread_1153565";
-		  post.innerHTML=('<tr class="sticky">'+'<td class="icn">'+'<img src="./files/folder_common.gif">'+'</td>'+'<th class="common">'+
-'<a href="post.html?'+postid+'"'+' style="color: #000000;padding:0 10px 0 5px;display:inline-block;" onclick="" class="s xst">'+postname+'</a>'+
-'</th>'+'<td class="by">'+'<cite>'+author+'</cite>'+'<em><span>'+posttime+'</span></em>'+'</td>'+
-'<td class="num">'+commentcount+'<em>'+viewcount+'</em></td>'+
-'<td class="by"><cite>'+lastauthor+'</cite>'+'<em>'+lastupdate+'</em></td></tr>');		
-			
-          
-			lastpost.insertAdjacentElement("afterend", post);
-			lastpost=post;
-            if(sheetData[0][1])
+          var post = document.createElement('dl');
+		  post.className ="bbda cl";
+		  post.innerHTML=(
+   
+            '<dd class="m avt" id="bottom">'+
+            '<a href="" target="_blank"><img src="./files/noavatar_small.jpg" ></a></dd>'+
+            
+            '<dd class="ptm">'+
+            '<a href="" target="_blank" class="xw1">'+sender+'</a><br>'+content+
+            
 
-        }*/
+            '<br><br><span class="xg1">'+date+'</span></dd>'
+            
+           
+           );		
+			
+           messageparent.insertAdjacentElement("beforeend", post);
+
+
+        }
       
       
 	});
-	} 
+    }
 
     if(Cookies.get("signedin")!=undefined){
         getmessage();
