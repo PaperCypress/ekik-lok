@@ -69,3 +69,6 @@ function checkName(name) {
 function checkID(id) {
     return id==Cookies.get("signedin");
   }
+function ownPage(){
+    window.location.href="user.html?"+Cookies.get("signedin");
+}

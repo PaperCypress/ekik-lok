@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>e極樂 - 淨零塔位網路論壇</title>
+<title>個人訊息 - 淨零塔位網路論壇</title>
 <meta name="keywords" content="淨零塔位網路論壇">
 <meta name="description" content="e極樂 - 淨零塔位網路論壇">
 <base href="."><link rel="stylesheet" type="text/css" href="./files/style_1_common.css"><link rel="stylesheet" type="text/css" href="./files/style_1_forum_forumdisplay.css"><script src="./files/push.js.download"></script>
@@ -48,22 +48,22 @@
     <input type="hidden" name="handlekey" value="ls">
     </div>
     <!--endloginform-->
-    <!--profile-->
-    <div id="um" style="display: none;" >
-        <div class="avt y"><a href=""><img src="./files/noavatar_small.jpg"></a></div>
-        <p>
-        <strong class="vwmy"><a href="forum.html#" target="_blank" id="username"> </a></strong>
-    
-    
-        <span class="pipe">|</span><a href="forum.html#">設置</a>
-        <span class="pipe">|</span><a href="messagelist.html" id="myprompt" class="a showmenu new">訊息(1)</a><span id="myprompt_check"></span>
-        <span class="pipe">|</span><a  onclick="logout()">登出</a>
-        </p>
-        <p>
-            <a href="" id="g_upmine" class="showmenu" onmouseover="">群組: 會員</a>
-        </p>
-        </div>
-        <!--endprofile-->
+<!--profile-->
+<div id="um" style="display: none;" >
+	<div class="avt y"><a ><img src="./files/noavatar_small.jpg"></a></div>
+	<p>
+	<strong class="vwmy"><a onclick="ownPage()" id="username"> </a></strong>
+
+
+	<span class="pipe">|</span><a >設置</a>
+	<span class="pipe">|</span><a href="messagelist.html" id="myprompt" class="a showmenu new">訊息(1)</a><span id="myprompt_check"></span>
+	<span class="pipe">|</span><a onclick="logout()">登出</a>
+	</p>
+	<p>
+		<a  id="g_upmine" class="showmenu" onmouseover="">群組: 會員</a>
+	</p>
+	</div>
+	<!--endprofile-->
     </div>
     </form>
     </div>
@@ -243,10 +243,10 @@ function getmessage(sheet,loc){
 		  post.innerHTML=(
    
             '<dd class="m avt" id="bottom">'+
-            '<a href="" target="_blank"><img src="./files/noavatar_small.jpg" ></a></dd>'+
+            '<a><img src="./files/noavatar_small.jpg" ></a></dd>'+
             
             '<dd class="ptm">'+
-            '<a href="" target="_blank" class="xw1">'+sender+'</a><br>'+content+
+            '<a class="xw1">'+sender+'</a><br>'+content+
             
 
             '<br><br><span class="xg1">'+date+'</span></dd>'
