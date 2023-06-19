@@ -1,4 +1,4 @@
-var userlist=[];
+    var userlist=[];
 	  var passlist=[];
 	  var userIDlist=[];
       function getusers(){
@@ -10,8 +10,9 @@ var userlist=[];
             userIDlist[i-1]=sheetData[i][2]; 
             }
             
-
+            whenusersloaded();
         });
+        
     }
 $( document ).ready(function() {
     getusers();
@@ -26,8 +27,19 @@ $( document ).ready(function() {
         document.getElementById("userlink").style.display = 'none';
     }
     });
+    function whenusersloaded(){
+        if(Cookies.get("signedin")!=undefined){
+            var index=userIDlist.findIndex(checkID);
+            console.log(index);
+            document.getElementById("us").innerHTML=userlist[index];
+        }
+
+    }
 function logout(){
 	Cookies.remove('signedin');
     window.location.href="index.html";
 
 }
+function checkID(id) {
+    return id==Cookies.get("signedin");
+  }
