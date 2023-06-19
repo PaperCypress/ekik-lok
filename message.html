@@ -226,7 +226,9 @@ function getmessage(sheet,loc){
     
     var userid=Cookies.get("signedin");
 		jQuery.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1OBU38M_mZylTzT3GjWrJsnOSySeQEgMcZhE7ujj-Vic/values/messages"+userid+"/?key=AIzaSyCSGFd1PdXyieRtd8FXsgFZVyMnI3Q8Xkk", function (data) {
-
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);   
+        var num=parseInt(queryString);
         var sheetData = data.values;
             var message=document.getElementById("message");
         var messageparent=document.getElementById("pm_ul");
@@ -234,11 +236,13 @@ function getmessage(sheet,loc){
         var i;
         
           for (i = 2; i < sheetData.length; i++) {
-            var date=sheetData[i][3]; 
-        var sender=sheetData[i][1];
-        var content=sheetData[i][0];
-          console.log(sheetData[0][1]);
+            var date=sheetData[i][4*num+3]; 
+        var sender=sheetData[i][4*num+1];
+        var content=sheetData[i][4*num];
           var post = document.createElement('dl');
+          if(content===undefined){
+              break;
+          }
 		  post.className ="bbda cl";
 		  post.innerHTML=(
    

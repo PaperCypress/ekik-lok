@@ -121,8 +121,9 @@
 
 <form id="deletepmform"  method="post" autocomplete="off" name="deletepmform">
 
-<div class="xld xlda pml mtm mbm">
-<dl id="pmlist_7836" class="bbda cur1 cl">									
+<div id="messagelistparent" class="xld xlda pml mtm mbm">
+    <!--message
+<dl class="bbda cur1 cl">									
 <dd class="m avt">
 <img src="./files/noavatar_small.jpg" >
 </dd>
@@ -136,14 +137,11 @@
 <span class="pm_o y">
 
 
-<a id="pmlist_7836_a">回復</a>
+<a href="message.html">回復</a>
 </span>
-
 </dd>
-
-
-
 </dl>
+    messageend-->
 </div>
 
 
@@ -210,35 +208,38 @@ GMT+8, 2023-6-14 09:41<span id="debuginfo">
 		jQuery.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1OBU38M_mZylTzT3GjWrJsnOSySeQEgMcZhE7ujj-Vic/values/messages"+userid+"/?key=AIzaSyCSGFd1PdXyieRtd8FXsgFZVyMnI3Q8Xkk", function (data) {
 
         var sheetData = data.values;
-            var message=document.getElementById("message");
-            var   messagetime=document.getElementById("messagetime");
+
         var i;
-        var matchCount = 0;
-        var sender=sheetData[1][1];
-        let content=sheetData[2][0];
-        content=content.slice(0, 40);
-        message.innerHTML=sender+":<br>";
-        message.insertAdjacentHTML('afterend', "<span>"+content+"...</span><br>");
-        messagetime.innerHTML=sheetData[1][3];
+        var parent=document.getElementById("messagelistparent")    
+        
         //clip msg
-          /*for (i = 1; i < 99; i++) {
+          for (i = 0; i < 99; i++) {
+
             var date=document.getElementById(messagetime); 
-        var sender=sheetData[0][1];
-          console.log(sheetData[0][1]);
-          var post = document.createElement('tbody');
-		  post.id="stickthread_1153565";
-		  post.innerHTML=('<tr class="sticky">'+'<td class="icn">'+'<img src="./files/folder_common.gif">'+'</td>'+'<th class="common">'+
-'<a href="post.html?'+postid+'"'+' style="color: #000000;padding:0 10px 0 5px;display:inline-block;" onclick="" class="s xst">'+postname+'</a>'+
-'</th>'+'<td class="by">'+'<cite>'+author+'</cite>'+'<em><span>'+posttime+'</span></em>'+'</td>'+
-'<td class="num">'+commentcount+'<em>'+viewcount+'</em></td>'+
-'<td class="by"><cite>'+lastauthor+'</cite>'+'<em>'+lastupdate+'</em></td></tr>');		
+            var sender=sheetData[1][i*4+1];
+            if(sender===undefined){
+                break;
+            }
+            let content=sheetData[2][i*4];
+            content=content.slice(0, 40);
+            var messagetime=sheetData[1][i*4+3];
+          var post = document.createElement('dl');
+          post.className="bbda cur1 cl";
+		  post.innerHTML=('<dd class="m avt">'+
+
+'<img src="./files/noavatar_small.jpg" >'+
+'</dd><dd class="ptm pm_c">'+
+    
+'<a href="message.html?'+i+'" class="xw1" id="message">'+sender+':</a><br>'+content+
+ 
+
+'...<br><br><span class="xg1" id="messagetime">'+messagetime+'</span> &nbsp;'+
+'<span class="pm_o y"><a>回復</a></span></dd>');		
 			
           
-			lastpost.insertAdjacentElement("afterend", post);
-			lastpost=post;
-            if(sheetData[0][1])
+            parent.insertAdjacentElement("beforeend", post);
 
-        }*/
+        }
       
       
 	});
