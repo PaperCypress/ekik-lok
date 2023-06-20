@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="end/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%;
+background-color: black;
+white-space:nowrap;
+}
+.bgimg {
+  background-image: url('end/final.png');
+  min-height: 100%;
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+</style>
+</head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top w3-center">恭喜你！</h1>
+    <p class="w3-large w3-center">經過重重考驗成為我們<span id="hit-counter" style="font-size: 110%;font-weight: bold;"></span>預備特級探員，我們即將揭竿而起。<br>
+      你的執著與正義肯定能為這世界獻上最有力的幫助！<br>盡情期待我們的後續通知，祝一切安康順利。 <br>-霍普no.2531</p>
+  </div>
 
+</div>
+<script src="js/jquery.cookie.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+<script src="js/counter.js"></script>
 </body>
 </html>
+

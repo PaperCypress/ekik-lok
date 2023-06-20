@@ -19,21 +19,10 @@
 <body id="nv_home" class="pg_space" >
 <div id="append_parent">
 <div class="dwp">
-<div id="toptb" class="cl">
-<div class="wp">
-<div class="z"><a href="javascript:;" onclick="setHomepage(&#39;http://www.168gamesf.com/&#39;);">設為首頁</a><a href="http://www.168gamesf.com/" onclick="addFavorite(this.href, &#39;168遊戲論壇&#39;);return false;">收藏本站</a></div>
-<div class="y">
-<a id="switchblind" href="javascript:;" onclick="toggleBlind(this)" title="開啟輔助訪問" class="switchblind">開啟輔助訪問</a>
-<a href="http://www.168gamesf.com/go/aHR0cHM6Ly9saW5lLm1lL3RpL3AvOHZwNmNqek5Gbw,," target="_blank">廣而告知</a><a href="javascript:tsConvert.toggle(0);">繁簡轉換</a></div>
-</div>
-</div>
+
 
 		
-<div id="qmenu_menu" class="p_pop blk" style="display: none;">
-<div class="ptm pbw hm">
-請 <a href="javascript:;" class="xi2" onclick="lsSubmit()"><strong>登錄</strong></a> 後使用快捷導航<br>沒有帳號？<a href="http://www.168gamesf.com/member.php?mod=reg" class="xi2 xw1">註冊</a>
-</div>
-<div id="fjump_menu" class="btda"></div></div>
+
 <!--header-->		
 <div id="hd">
     <div class="wp">
@@ -146,8 +135,8 @@
 <div class="bm_c u_profile">
 
 <div class="pbm mbm bbda cl">
-<h2 class="mbn">
-張生生<span class="xw0">(UID: 625466)</span>
+<h2 class="mbn" id="name2">
+<span class="xw0">(UID: )</span>
 </h2>
 <ul class="pf_l cl pbm mbm">
 <li><em>郵箱狀態</em>已驗證</li>
@@ -234,6 +223,7 @@
     
     
  var username=document.getElementById("pageuser");
+ var identifier=document.getElementById("name2");
  var pagelink=document.getElementById("pagelink");
  function getfromID(id) {
     return String(id)==userid;
@@ -246,6 +236,7 @@
         var index=userIDlist.findIndex(getfromID);
         username.innerHTML=userlist[index];
         pagelink.innerHTML+=userIDlist[index];
+        identifier.innerHTML=userlist[index]+'<span class="xw0">(UID: '+userIDlist[index]+')</span>';
     }
     }
 checkLoaded();
