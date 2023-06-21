@@ -96,7 +96,7 @@
 <div id="pt" class="bm cl">
 <div class="z">
 <a class="nvhm" title="首頁">論壇</a> <em>›</em>
-<a >硬邦邦</a> <em>›</em>
+
 個人資料
 </div>
 </div>
@@ -170,11 +170,11 @@
 <div id="psts" class="cl">
 <h2 class="mbn">統計信息</h2>
 <ul class="pf_l">
-<li><em>租用空間</em>   78.6 GB </li>
+<li><em>租用空間</em><span id="storage">78.6 GB</span> </li>
 <li><em>信用</em>32</li>
 <li><em>活躍度</em>36 </li>
-<li><em>供養額度</em>3450 </li>
-<li><em>冥幣</em>0 </li>
+<li><em>供養額度</em><span id="cost">3450</span> </li>
+<li><em>冥幣</em><span id="coin">0</span> </li>
 </ul>
 </div>
 </div><!--[diy=diycontentbottom]--><div id="diycontentbottom" class="area"></div><!--[/diy]--></div>
@@ -189,27 +189,28 @@
 
 
 
-<div id="ft" class="wp cl">
-<div id="flk" class="y">
-<p>
-<a href="" rel="nofollow">免責聲明</a><span class="pipe">|</span>
-<a href="forum.html?mobile=yes" rel="nofollow">手機版</a>
-<span class="pipe">|</span>
-
-<strong><a href="forum.html" target="_blank">淨零塔位網路論壇</a></strong>
-<span class="pipe">|</span>
-
-
-</p>
-
+    <div id="ft" class="wp cl">
+        <div id="flk" class="y">
+        <p>
+        <a rel="nofollow">免責聲明</a><span class="pipe">|</span>
+        <a rel="nofollow">手機版</a>
+        <span class="pipe">|</span>
+        
+        <strong><a href="forum.html" target="_blank">淨零塔位網路論壇</a></strong>
+        <span class="pipe">|</span>
+        
+        
+        </p>
+        
+        </div>
+        
+        <div id="frt">
+        <p>Powered by <strong><a href="http://www.discuz.net/" target="_blank">Discuz!</a></strong> <em>X3.4</em></p>
+        <p class="xs0">© 2013-2023 <a href="#" target="_blank">Yungsheng Lab Corp.</a></p>
+        </div>
+        
+        </div>
 </div>
-
-<div id="frt">
-<p>Powered by <strong><a href="http://www.discuz.net/" target="_blank">Discuz!</a></strong> <em>X3.4</em></p>
-<p class="xs0">© 2013-2023 <a href="#" target="_blank">Yungsheng Lab Corp.</a></p>
-</div>
-
-</div></div>
 
 
 </div>
@@ -238,6 +239,13 @@
         username.innerHTML=userlist[index];
         pagelink.innerHTML+=userIDlist[index];
         identifier.innerHTML=userlist[index]+'<span class="xw0">(UID: '+userIDlist[index]+')</span>';
+        
+        jQuery.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1OBU38M_mZylTzT3GjWrJsnOSySeQEgMcZhE7ujj-Vic/values/accounts/?key=AIzaSyCSGFd1PdXyieRtd8FXsgFZVyMnI3Q8Xkk", function (data) {
+            var sheetData = data.values;
+            document.getElementById("storage").innerHTML=sheetData[index+1][3];
+            document.getElementById("coin").innerHTML=sheetData[index+1][6];
+            document.getElementById("cost").innerHTML=sheetData[index+1][5];
+        });
     }
     }
 checkLoaded();

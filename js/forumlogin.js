@@ -34,6 +34,8 @@ function whenusersloaded(){
         document.getElementById("loginform").style.display = 'none';
         document.getElementById("um").style.display = 'block';
         document.getElementById("username").innerHTML = userlist[index];
+        document.getElementById("myprompt").innerHTML = "訊息("+messageCount[index]+")";
+        
     }
     else{
         document.getElementById("loginform").style.display = 'block';
