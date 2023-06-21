@@ -117,7 +117,7 @@
 </div>
 </div>
 <div class="xw1">
-共有 <span id="membernum" class="xi1">1</span> 條與 <a id="sender" href="user.html">laplusname</a> 的交談記錄 &nbsp;
+共有 <span id="membernum" class="xi1">1</span> 條與 <a id="sender" href="user.html"></a> 的交談記錄 &nbsp;
 </div>
 </div>
 <div id="pm_ul" class="xld xlda mbm pml">
@@ -234,11 +234,12 @@ function getmessage(sheet,loc){
         var messageparent=document.getElementById("pm_ul");
             
         var i;
-        
+        document.getElementById("sender").innerHTML=sheetData[1][4*num+1];
           for (i = 2; i < sheetData.length; i++) {
             var date=sheetData[i][4*num+3]; 
         var sender=sheetData[i][4*num+1];
         var content=sheetData[i][4*num];
+        
           var post = document.createElement('dl');
           if(content===undefined){
               break;
